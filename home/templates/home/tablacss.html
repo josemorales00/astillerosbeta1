@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASTILLEROS MARINA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8 >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-
+    fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="marquesina">
+        <h1>ASTILLEROS MARINA</h1>
+    </div>
+    <div class="contenido">
+        <div class="cuadricula-tarjeta">
+            <div class="tarjeta">
+                <p class="titulo-tarjeta">Administración de slips</p>
+                <p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>devEUI</th>
+                                <th>Consumo</th>
+                                <th>devADDR</th>
+                                <th>Tiempo de la medición</th>
+                                <th>Abrir</th>
+                                <th>Cerrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dato in datos %}
+                                <tr>
+                                    <td>{{ dato.deveui }}</td>
+                                    <td>{{ dato.consumo }}</td>
+                                    <td>{{ dato.devaddr }}</td>
+                                    <td>{{ dato.fecha }}</td>
+                                    <td>
+                                        <form action="/abrirAPI">
+                                            <button id="abrir">Abrir</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="/abrirAPI">
+                                            <button id="cerrar">Cerrar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                <p class="tiempo-actualizado">Última actualización: <span id="tiempo-actualizado"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

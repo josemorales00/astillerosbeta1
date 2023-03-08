@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASTILLEROS MARINA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8 >
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/al
+    l.css" integrity="sha384-
+    fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="an
+    onymous"> -->
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+</head>
+<body>
+    <div class="marquesina">
+        <h1>ASTILLEROS MARINA</h1>
+    </div>
+    <div class="contenido">
+        <div class="cuadricula-tarjeta">
+            <div class="tarjeta">
+                <p class="titulo-tarjeta">Administración de slips</p>
+                <p>
+                    <table>
+                        <tr>
+                            <th>N° medidor</th>
+                            <th>Fecha y hora</th>
+                            <th>Consumo</th>
+                            <th>Abrir</th>
+                            <th>Cerrar</th>
+                            <th>Estado</th>
+                        </tr>
+                        <tr>
+                            <td>Electricidad 01</td>
+                            <td>24-02-2023 10:49</td>
+                            <td>11.9 kWh</td>
+                            <td>
+                                <form action="/abrirAPI">
+                                    <button id="abrir">Carpeta</button>
+                                </form>
+                            </td>
+                            <td><button name="cerrar">Cerrar</button></td>
+                            <td>Abierto</td>
+                        </tr>
+                        <tr>
+                            <td>Electricidad 02</td>
+                            <td>24-02-2023 10:49</td>
+                            <td>11.9 kWh</td>
+                            <td><button name="abrir">Abrir</button></td>
+                            <td><button name="cerrar">Cerrar</button></td>
+                            <td>Abierto</td>
+                        </tr>
+                        <tr>
+                            <td>Electricidad 03</td>
+                            <td>24-02-2023 10:49</td>
+                            <td>11.9 kWh</td>
+                            <td><button name="abrir">Abrir</button></td>
+                            <td><button name="cerrar">Cerrar</button></td>
+                            <td>Cerrado</td>
+                        </tr>
+                    </table>
+                </p>
+                <p class="tiempo-actualizado">Última actualización: <span id="tiempo-actualizado"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
